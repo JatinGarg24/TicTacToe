@@ -6,4 +6,47 @@
     android:layout_height="match_parent"
     tools:context=".Dashboard">
 
+    <TextView
+        android:id="@+id/textView2"
+        android:layout_width="304dp"
+        android:layout_height="133dp"
+        android:layout_marginTop="148dp"
+        android:fontFamily="@font/bangers"
+        android:text="Tic Tac Toe"
+        android:textAlignment="center"
+        android:textColor="@android:color/black"
+        android:textSize="70sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.495"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <Button
+        android:id="@+id/vs_friend"
+        android:layout_width="118dp"
+        android:layout_height="50dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginEnd="64dp"
+        android:background="@drawable/custom_button"
+        android:text="vs Friend"
+        android:textAllCaps="false"
+        android:textColor="@android:color/white"
+        app:layout_constraintBaseline_toBaselineOf="@+id/vs_computer"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/vs_computer" />
+
+    <Button
+        android:id="@+id/vs_computer"
+        android:layout_width="118dp"
+        android:layout_height="50dp"
+        android:layout_marginStart="64dp"
+        android:background="@drawable/custom_button"
+        android:text="vs Computer"
+        android:textAllCaps="false"
+        android:textColor="@android:color/white"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.657" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>
