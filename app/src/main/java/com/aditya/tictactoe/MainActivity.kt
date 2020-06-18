@@ -12,6 +12,8 @@ import androidx.appcompat.app.AppCompatActivity
 
 class MainActivity : AppCompatActivity() {
 
+
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         window.setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN,WindowManager.LayoutParams.FLAG_FULLSCREEN)
@@ -30,7 +32,9 @@ class MainActivity : AppCompatActivity() {
             val intent = Intent(this, Dashboard::class.java)
             startActivity(intent)
             finish()
-        }, 3600)
+        }, 2500)
 
     }
+
+
 }
