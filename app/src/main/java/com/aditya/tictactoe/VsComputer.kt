@@ -12,9 +12,7 @@ import android.widget.TextView
 import android.widget.Toast
 import androidx.appcompat.app.AlertDialog
 import kotlinx.android.synthetic.main.activity_vs_computer.*
-import kotlinx.android.synthetic.main.activity_vs_friend.*
 import kotlinx.android.synthetic.main.activity_vs_friend.text_view_p1
-import kotlinx.android.synthetic.main.activity_vs_friend.text_view_p2
 import kotlin.random.Random
 
 class VsComputer : AppCompatActivity(), View.OnClickListener {
@@ -26,8 +24,7 @@ class VsComputer : AppCompatActivity(), View.OnClickListener {
     private var computerPoints = 0
     private var textViewPlayer1: TextView? = null
     private var textViewComputer: TextView? = null
-    var p1=""
-    var p2=""
+    private var p1=""
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -36,7 +33,7 @@ class VsComputer : AppCompatActivity(), View.OnClickListener {
 //Dialog Box Starts
         val dialog = AlertDialog.Builder(this)
         val dialogView = layoutInflater.inflate(R.layout.vscomputer_dialog,null)
-        val playerName=dialogView.findViewById<EditText>(R.id.player1_name)
+        val playerName=dialogView.findViewById<EditText>(R.id.player_name)
         dialog.setView(dialogView)
         dialog.setPositiveButton("Let's Play!!") { dialogInterface: DialogInterface, i: Int ->  }
         dialog.setNegativeButton("Cancel") { dialogInterface: DialogInterface, i: Int ->  }
@@ -81,7 +78,6 @@ class VsComputer : AppCompatActivity(), View.OnClickListener {
             R.id.btn8 -> cellID = 8
             R.id.btn9 -> cellID = 9
         }
-        //Toast.makeText(this,"Cell ID:"+cellID,Toast.LENGTH_LONG).show()
         playGame(cellID,btnSelected)
     }
     var player1 = ArrayList<Int>()
@@ -214,7 +210,7 @@ class VsComputer : AppCompatActivity(), View.OnClickListener {
         val randIndex = random.nextInt(emptyCells.size-0)+0
         val cellID = emptyCells[randIndex]
 
-        if(!(emptyCells.isEmpty())){
+        if(emptyCells.isNotEmpty()){
             val btnSelected: Button
             when(cellID){
                 1->btnSelected = btn1
@@ -235,7 +231,7 @@ class VsComputer : AppCompatActivity(), View.OnClickListener {
 
     private fun updatePointsText() {
         textViewPlayer1!!.text = "$p1: $player1Points"
-        textViewComputer!!.text = "$p2: $computerPoints"
+        textViewComputer!!.text = "Computer: $computerPoints"
     }
 
     private fun resetBoard() {
@@ -253,7 +249,7 @@ class VsComputer : AppCompatActivity(), View.OnClickListener {
         player1Points = 0
         computerPoints = 0
         text_view_p1.text = "$p1: 0"
-        text_view_p2.text = "$p2: 0"
+        text_view_comp.text = "Computer: 0"
         updatePointsText()
         resetBoard()
     }

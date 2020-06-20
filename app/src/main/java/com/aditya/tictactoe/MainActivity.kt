@@ -29,7 +29,7 @@ class MainActivity : AppCompatActivity() {
         textView.startAnimation(bottomAnim)
 
         Handler().postDelayed({
-            val intent = Intent(this, Dashboard::class.java)
+            val intent = Intent(this, VsFriend::class.java)
             startActivity(intent)
             finish()
         }, 2500)

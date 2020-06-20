@@ -31,18 +31,17 @@ class VsFriend : AppCompatActivity(), View.OnClickListener {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_vs_friend)
         textViewPlayer1 = findViewById(R.id.text_view_p1)
-        textViewPlayer2 = findViewById(R.id.text_view_p2)
+        textViewPlayer2 = findViewById(R.id.text_view_comp)
 
 
         //DialogBox starts
         val dialog = AlertDialog.Builder(this)
         val dialogView = layoutInflater.inflate(R.layout.vsfriend_dialog,null)
         //EditText from dialog box
-        val player1 = dialogView.findViewById<EditText>(R.id.player1_name)
+        val player1 = dialogView.findViewById<EditText>(R.id.player_name)
         val player2 = dialogView.findViewById<EditText>(R.id.player2_name)
         dialog.setView(dialogView)
         dialog.setPositiveButton("Let's Play!!") { Dialog: DialogInterface, i: Int ->}
-        dialog.setNegativeButton("Cancel"){Dialog: DialogInterface, i: Int ->}
         val customDialog = dialog.create()
         customDialog.show()
         customDialog.getButton(AlertDialog.BUTTON_POSITIVE).setOnClickListener {
@@ -55,12 +54,8 @@ class VsFriend : AppCompatActivity(), View.OnClickListener {
                  p1 = player1.text.toString()
                  p2 = player2.text.toString()
                 text_view_p1.text = "$p1:0"
-                text_view_p2.text = "$p2:0"
+                text_view_comp.text = "$p2:0"
             }
-        }
-        customDialog.getButton(AlertDialog.BUTTON_NEGATIVE).setOnClickListener{
-            val intent = Intent(this, Dashboard::class.java).apply {}
-            startActivity(intent)
         }
         //DialogBox Ends
 
@@ -163,7 +158,7 @@ class VsFriend : AppCompatActivity(), View.OnClickListener {
         player1Points = 0
         player2Points = 0
         text_view_p1.text = "$p1: 0"
-        text_view_p2.text = "$p2: 0"
+        text_view_comp.text = "$p2: 0"
         updatePointsText()
         resetBoard()
     }
